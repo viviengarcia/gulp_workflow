@@ -1,0 +1,30 @@
+{
+  "name": "css_starter-gulp",
+  "version": "0.0.0",
+  "description": "gulp build of css_starter",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Vivien Garcia",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "gulp": "~3.5.2",
+    "event-stream": "~3.1.0",
+    "gulp-util": "~2.2.14",
+    "gulp-rename": "~1.0.0",
+    "gulp-rimraf": "0.0.9",
+    "gulp-jade": "~0.4.1",
+    "gulp-html-prettify": "0.0.1",
+    "gulp-frep": "~0.1.0",
+    "gulp-replace": "~0.2.0",
+    "gulp-htmlhint": "0.0.7",
+    "gulp-jshint": "~1.4.0",
+    "gulp-sass": "~0.6.0",
+    "gulp-autoprefixer": "0.0.6",
+    "gulp-cssbeautify": "~0.1.1",
+    "gulp-minify-css": "~0.3.0",
+    "gulp-bless": "0.0.3",
+    "gulp-concat": "~2.1.7",
+    "gulp-uglify": "~0.2.1",
+    "gulp-notify": "~0.4.5"
+  }
+}

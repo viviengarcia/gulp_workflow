@@ -1,0 +1,38 @@
+/*!
+Name: CSS Starter
+URL: http://github.com/viviengarcia/CSS-Starter
+Description: Manual highlight of some elements
+Version: 0.1
+License: GPLv3
+*/
+
+// Ordre des partials
+
+// --Tools
+// 1 Var
+// 2 Helper
+// 3 Normalize
+//
+// --App
+// 4 Element
+// 5 Module
+// 6 Set
+// 7 Page
+// 8 App
+//
+// --Post
+// 9 Ugly
+// 10 Debug
+
+@import 'var';
+@import 'helper';
+@import 'normalize';
+
+@import 'element';
+@import 'module';
+@import 'set';
+@import 'page';
+@import 'app';
+
+@import 'ugly';
+@import 'debug';

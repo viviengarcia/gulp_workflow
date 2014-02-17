@@ -1,0 +1,495 @@
+
+
+/*****************************************************************************************\
+            $$ H E L P E R S
+\*****************************************************************************************/
+
+/*******************************************\
+    ^^ Mixins
+\*******************************************/
+
+/**
+ * ::: generic mixins
+**/
+
+/**
+ * ::: @media mixin
+**/
+@mixin mq($canvas) {
+    @if $canvas == sl // value & less
+    {
+        @media only screen and ( max-width: $s ) { @content; }
+    }
+    @else if $canvas == ml
+    {
+        @media only screen and ( max-width: $m ) { @content; }
+    }
+    @else if $canvas == ll
+    {
+        @media only screen and ( max-width: $l ) { @content; }
+    }
+    @else if $canvas == xll
+    {
+        @media only screen and ( max-width: $xl ) { @content; }
+    }
+    @else if $canvas == sp // value & plus
+    {
+        @media only screen and ( min-width: $s + 1 ) { @content; }
+    }
+    @else if $canvas == mp
+    {
+        @media only screen and ( min-width: $m + 1 ) { @content; }
+    }
+    @else if $canvas == lp
+    {
+        @media only screen and ( min-width: $l + 1 ) { @content; }
+    }
+    @else if $canvas == xlp
+    {
+        @media only screen and ( min-width: $xl + 1 ) { @content; }
+    }
+    @else if $canvas == stol
+    {
+        @media only screen and ( min-width: $s + 1 ) and ( max-width: $l) { @content; }
+    }
+    @else if $canvas == mtoxl
+    {
+        @media only screen and ( min-width: $l + 1 ) and ( max-width: $xl) { @content; }
+    }
+    @else if $canvas == stoxl
+    {
+        @media only screen and ( min-width: $s + 1 ) and ( max-width: $xl) { @content; }
+    }
+    @else if $canvas == s
+    {
+        @media only screen and (  min-width: $s + 1 ) and ( max-width: $m) { @content; }
+    }
+    @else if $canvas == m
+    {
+        @media only screen and (  min-width: $m + 1 ) and ( max-width: $l) { @content; }
+    }
+    @else if $canvas == l
+    {
+        @media only screen and (  min-width: $l + 1 ) and ( max-width: $xl) { @content; }
+    }
+}
+
+/**
+ * ::: grid
+**/
+.grid-container
+{
+    width: 100%;
+    padding: 0 0 $v_unit_rem;
+    font-size: 0;
+}
+
+.grid-cell
+{
+    @extend %inblock;
+    padding-left: $gutter_rem;
+    font-size: $font_size_body_rem;
+    &:first-child
+    {
+        padding-left: 0;
+    }
+}
+
+.first-of-row
+{
+    padding-left: 0;
+}
+
+@mixin mq_grid($device)
+{
+    #{$device}one-whole
+    {
+        width: 100%;
+    }
+
+    #{$device}one-half
+    {
+        width: 50%;
+    }
+
+    #{$device}one-third
+    {
+        width: 33.3333333%;
+
+    }
+    #{$device}two-thirds
+    {
+        width: 66.6666666%;
+    }
+
+    #{$device}one-quarter
+    {
+        width: 25%;
+
+    }
+    #{$device}two-quarters
+    {
+        @extend #{$device}one-half;
+
+    }
+    #{$device}three-quarters
+    {
+        width: 75%;
+    }
+
+    #{$device}one-fifth
+    {
+        width: 20%;
+
+    }
+    #{$device}two-fifths
+    {
+        width: 40%;
+    }
+    #{$device}three-fifths
+    {
+        width: 60%;
+    }
+    #{$device}four-fifths
+    {
+        width: 80%;
+    }
+
+    #{$device}one-sixth
+    {
+        width: 16.6666666%;
+
+    }
+    #{$device}two-sixths
+    {
+        @extend #{$device}one-third;
+    }
+    #{$device}three-sixths
+    {
+        @extend #{$device}one-half;
+    }
+    #{$device}four-sixths
+    {
+        @extend #{$device}two-thirds;
+    }
+    #{$device}five-sixths
+    {
+        @extend #{$device}two-thirds;
+    }
+
+    #{$device}one-eighth
+    {
+        width: 12.5%;
+    }
+    #{$device}two-eighths
+    {
+        @extend #{$device}one-quarter;
+    }
+    #{$device}three-eighths
+    {
+        width: 37.5%;
+    }
+    #{$device}four-eighths
+    {
+        @extend #{$device}one-half;
+    }
+    #{$device}five-eighth
+    {
+        width: 62.5%;
+    }
+    #{$device}six-eighths
+    {
+        @extend #{$device}three-quarters;
+    }
+    #{$device}seven-eighths
+    {
+        width: 87.5%;
+    }
+
+    #{$device}one-tenth
+    {
+        width: 10%;
+    }
+    #{$device}two-tenths
+    {
+        @extend #{$device}one-fifth;
+    }
+    #{$device}three-tenths
+    {
+        width: 30%;
+    }
+    #{$device}four-tenths
+    {
+        width: 40%;
+    }
+    #{$device}five-tenths
+    {
+        @extend #{$device}one-half;
+    }
+    #{$device}six-tenths
+    {
+        width: 60%;
+    }
+    #{$device}seven-tenths
+    {
+        width: 70%;
+    }
+    #{$device}eight-tenths
+    {
+        @extend #{$device}four-fifths;
+    }
+    #{$device}nine-tenths
+    {
+        width: 90%;
+    }
+
+    #{$device}one-twelfth
+    {
+        width: 8.3333333%;
+    }
+    #{$device}two-twelfths
+    {
+        @extend #{$device}one-sixth;
+    }
+    #{$device}three-twelfths
+    {
+        @extend #{$device}one-quarter;
+    }
+    #{$device}four-twelfths
+    {
+        @extend #{$device}one-third;
+    }
+    #{$device}five-twelfths
+    {
+        width: 41.6666666%;
+    }
+    #{$device}six-twelfths
+    {
+        @extend #{$device}one-half;
+    }
+    #{$device}seven-twelfths
+    {
+        width: 58.3333333%;
+    }
+    #{$device}eight-twelfths
+    {
+        @extend #{$device}two-thirds;
+    }
+    #{$device}nine-twelfths
+    {
+        @extend #{$device}three-quarters;
+    }
+    #{$device}ten-twelfths
+    {
+        @extend #{$device}five-sixths;
+    }
+    #{$device}eleven-twelfths
+    {
+        width: 91.6666666%;
+    }
+}
+
+@mixin mq_create($media-query)
+{
+    @each $rule in $conditions
+    {
+        $name: nth($rule, 1);
+        $condition: nth($rule, 2);
+
+        @if $media-query == $name and $condition
+        {
+            @media only screen and #{$condition}{
+                @content;
+            }
+        }
+    }
+}
+
+
+/* !! all-purpose grid */
+@include mq_grid('%');
+
+/* !! start responsive grid */
+@each $point in $breakpoints
+{
+    @include mq_create($point)
+    {
+        @include mq_grid('%#{$point}--');
+    }
+}
+
+/**
+ * ::: Debug mixins
+**/
+@mixin vg_const_debug($color_debug)
+{
+    outline: 3px dashed $color_debug!important;
+}
+
+@mixin vg_elem_enlarge()
+{
+    display: inline-block;
+    width: 6rem;
+    height: 4.8rem;
+    margin: 0;
+    background-image: repeating-linear-gradient(-45deg, $app_white 0, $app_white 0.5rem, $color_error 0.6rem, $app_white 0.7rem, $app_white 1.2rem, $color_warning 1.4rem, $color_warning 1.8rem);
+}
+
+/* !! define box-model as "border-box" */
+*
+{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+
+
+//*******************************************\
+//  ^^ Extend
+//*******************************************\
+%inblock
+{
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+/*******************************************\
+    ^^ Layout
+\*******************************************/
+
+/* !! define basic typo scale in medium non-retinas screens */
+html
+{
+    font-size: 62.5%;
+}
+
+.table
+{
+    display: table;
+}
+
+.cell
+{
+    display: table-cell;
+}
+
+/* clearfix for blocks that must contain floats */
+.clearfix:after,
+.line:after,
+.mod:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.left
+{
+    float: left;
+}
+
+.right
+{
+    float: right;
+}
+
+.center
+{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*******************************************\
+    ^^ Typography
+\*******************************************/
+
+.textright
+{
+    text-align: right;
+}
+
+.textleft
+{
+    text-align: left;
+}
+
+.textcenter
+{
+    text-align: center;
+}
+
+/* !! Prevent long strings to break out of their container */
+.wrap
+{
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
+/*******************************************\
+    ^^ Hidding / unhidding content
+\*******************************************/
+
+/* for image replacement */
+.ir
+{
+    display: block;
+    text-indent: -999em;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    text-align: left;
+    direction: ltr;
+}
+
+/* Hide for both screenreaders and browsers - css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden
+{
+    display: none;
+    visibility: hidden;
+}
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible
+{
+    visibility: hidden;
+}
+
+/* Hide only visually, but have it available for screenreaders
+   www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
+.assistive-text,
+.visually-hidden
+{
+    position: absolute !important;
+    left: -7000px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
+*[dir=rtl] .visually-hidden
+{
+    left: auto;
+    right: -7000px;
+}
+
+a.assistive-text:active,
+a.assistive-text:focus
+{
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    color: #1982d1;
+    clip: auto !important;
+    font-size: 12px;
+    position: absolute;
+    text-decoration: underline;
+    top: 0;
+    left: 7.6%;
+}

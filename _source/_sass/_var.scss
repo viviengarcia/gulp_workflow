@@ -1,0 +1,91 @@
+
+
+
+//***************************************************************************************\
+//            $$ V A R
+//***************************************************************************************\
+
+//*******************************************\
+//  ^^ Options
+//*******************************************\
+
+/* !! choose your weapon */
+$is_debug_manual_on: false ;
+$is_debug_auto_on: false;
+
+/* !! if language is fr(ench), quotes are in french format, else in english */
+$is_lang_fr: false;
+
+
+// breakpoints media queries values
+$s: 320px;
+$m: 480px;
+$l: 768px;
+$xl: 1152px;
+
+$breakpoints: ('s', 'm', 'l', 'xl');
+
+$conditions: (
+    's' '(max-width: 320px)',
+    'm' '(min-width: 321px) and (max-width: 768px)',
+    'l' '(min-width: 769px) and (max-width: 1152px)',
+    'xl' '(min-width: 1153px)'
+);
+
+//*******************************************\
+//  ^^ Variables and constants
+//*******************************************\
+
+/**
+ * ::: colors
+**/
+$color_error: red;
+$color_warning: yellow;
+$color_manual_debug: pink;
+
+$color_text: rgba(17,17,17, 1);
+$color_text_light: lighten($color_text, 16);
+$color_text_lighter: lighten($color_text, 36);
+$color_text_lightest: lighten($color_text, 54);
+
+$app_white: rgb(255, 250, 245);
+$app_grey: rgb(128, 126, 124);
+$app_light: lighten($app_grey, 16);
+$app_lighter: lighten($app_grey, 36);
+$app_lightest: lighten($app_grey, 44);
+
+$app_action_medium: rgba(46, 147, 230, 1.0);
+$app_action_fade: desaturate(lighten($app_action_medium, 16), 24);
+$app_action_fader: desaturate(lighten($app_action_medium, 24), 36);
+$app_action_fadest: desaturate(lighten($app_action_medium, 40), 54);
+
+/**
+ * ::: typo
+**/
+$default_font: sans-serif;
+$font_body: "Open Sans","Verdana",  sans-serif;
+
+/**
+ * ::: typo scale
+**/
+// choice of body text font size and line-height depends on the font itself
+$baseline: 24; // no units allowed
+$font_size_body_raw: 16; // no units allowed
+$line_height_body: $baseline/$font_size_body_raw;
+
+// we want rem font size = px font sizes / 10
+$pxtorem_factor: 10; // no units allowed
+
+$font_size_body_px: $font_size_body_raw + px;
+$font_size_body_rem: $font_size_body_raw/$pxtorem_factor + rem;
+
+// vertical spacing unit between elements
+$v_unit: $baseline/$pxtorem_factor; // no units allowed
+$v_unit_rem: $v_unit + rem;
+
+/**
+ * ::: grid constants
+**/
+$gutter: 10; // no units allowed
+$gutter_rem: ( $gutter / $pxtorem_factor ) + rem;
+$gutter_half_rem: $gutter / $pxtorem_factor / 2 + rem;

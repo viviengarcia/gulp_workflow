@@ -1,0 +1,310 @@
+
+
+
+/*****************************************************************************************\
+            $$ E L E M E N T
+\*****************************************************************************************/
+*
+{
+    margin-bottom: 0;
+}
+
+html
+{
+    @include mq(xlp)
+    {
+        font-size: 80%;
+    }
+    @include mq(stol)
+    {
+        font-size: 62.5%;
+    }
+    @include mq(sl)
+    {
+        font-size: 54.5%;
+    }
+}
+
+body
+{
+    font-size: $font_size_body_rem; // 1.6rem
+    line-height: $line_height_body;
+    color: $color_text;
+    background-color: $app_white;
+}
+
+.wrapper
+{
+    width: 55rem;
+    @extend .center;
+}
+
+/* !! basic headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    color: lighten($color_text, 8);
+}
+
+h1,
+.h1-like
+{
+    margin: 4.8rem 0 0;
+    line-height:1;
+    font-size: 4.8rem;
+    @include mq(xlp)
+    {
+        line-height:1.309659;
+        font-size: 5.5rem;
+    }
+    @include mq(sl)
+    {
+        line-height: 1.5;
+        font-size: 3.2rem;
+    }
+}
+
+h2,
+.h2-like
+{
+    margin: $v_unit_rem 0 0;
+    line-height:1.3333333;
+    font-size: 3.6rem;
+    @include mq(xlp)
+    {
+        line-height:1.2805541;
+        font-size: 3.75rem;
+    }
+    @include mq(sl)
+    {
+        line-height: 1.8461538;
+        font-size: 2.6rem;
+    }
+}
+
+h3,
+.h3-like
+{
+    margin: $v_unit_rem 0 0;
+    line-height:1;
+    font-size: 2.4rem;
+    @include mq(xlp)
+    {
+        line-height:1.6006927;
+        font-size: 3rem;
+    }
+    @include mq(sl)
+    {
+        line-height: 1.0909090;
+        font-size: 2.2rem;
+    }
+}
+
+h4,
+.h4-like
+{
+    margin: $v_unit_rem 0 0;
+    line-height: 1.2;
+    font-size: 2rem;
+    @include mq(xlp)
+    {
+        line-height:1.0963140;
+        font-size: 2.19rem;
+    }
+    @include mq(sl)
+    {
+        line-height: 1.2631578;
+        font-size: 1.9rem;
+    }
+}
+
+h5,
+.h5-like
+{
+    margin: $v_unit_rem 0 0;
+    font-size: 1.6rem;
+}
+
+h6,
+.h6-like
+{
+    margin: $v_unit_rem 0 0;
+    font-size: 1.6rem;
+    color: $color_text_light;
+}
+
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p
+{
+    margin-top: 0;
+}
+
+p,
+address
+{
+    margin-top: $v_unit_rem;
+}
+
+.lead, .lead code,
+h2 + p
+{
+    font-size: 1.8rem;
+    // line-height: 1.33333;
+    line-height: 1.2;
+}
+
+small, .small
+{
+    font-size: 1.3rem;
+}
+
+.smaller
+{
+    font-size: 1rem
+}
+
+.smallest
+{
+    font-size: 0.7rem
+}
+
+figure
+{
+    width: 100%;
+    margin: $v_unit_rem 0 0;
+    @extend .textcenter;
+}
+
+figcaption
+{
+    line-height: 3;
+    margin-top: -0.8rem;
+    color: $color_text_lighter;
+}
+
+blockquote, q
+{
+    @if $is_lang_fr == true
+    {
+        quotes: "«" "»" "‹" "›";
+    }
+    @else
+    {
+     quotes: "“" "”" "‘" "’";
+    }
+}
+
+blockquote
+{
+    margin: $v_unit_rem 0 0;
+    p
+    {
+        &:first-child:before
+        {
+            @if $is_lang_fr == true
+            {
+                content: open-quote;
+                margin-left: -0.9rem;
+                margin-right: 0.1rem;
+            }
+        }
+        &:before
+        {
+            @if $is_lang_fr == false
+            {
+                content: open-quote;
+                margin-left: -0.8rem;
+                margin-right: 0.3rem;
+            }
+        }
+        &:after
+        {
+            @if $is_lang_fr == false
+            {
+                content: no-close-quote;
+            }
+        }
+        &:last-child:after
+        {
+            content: close-quote;
+            @if $is_lang_fr == true
+            {
+                margin-left: 0.2rem;
+            }
+            @else
+            {
+                margin-left: 0.05rem;
+            }
+        }
+    }
+}
+
+q
+{
+    &:before
+    {
+        content: open-quote;
+    }
+    &:after
+    {
+        content: close-quote;
+    }
+}
+
+cite
+{
+    @extend .small;
+    color: $color_text;
+}
+
+ul, ol
+{
+    margin-top: $v_unit_rem;
+}
+
+h3 + ul, h3 + ol,
+h4 + ul, h4 + ol,
+h5 + ul, h5 + ol,
+h6 + ul, h6 + ol,
+li ul, li ol
+{
+    margin-top: 0;
+}
+
+table
+{
+    margin-top: $v_unit_rem;
+}
+
+th, td
+{
+    padding: 1.2rem;
+}
+
+.langage__label
+{
+    color: $color_text_lighter;
+    span
+    {
+        color: $color_text_lightest;
+    }
+}
+
+pre
+{
+    padding-left: 4rem;
+    margin-top: 0;
+    code
+    {
+        font-family: Menlo, Monaco, "Lucida Console", monospace;
+    }
+}
+
+

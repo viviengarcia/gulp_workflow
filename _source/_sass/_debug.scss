@@ -1,0 +1,228 @@
+
+
+
+/*****************************************************************************************\
+            $$ D E B U G
+\*****************************************************************************************/
+
+/*******************************************\
+^^  Manual Debug
+\*******************************************/
+
+/* show tags with 'debug' class on demand */
+.debug-border
+{
+    @if $is_debug_manual_on
+    {
+        display: block;
+        @include vg_const_debug($color_manual_debug);
+    }
+}
+
+.debug-background
+{
+    @if $is_debug_manual_on
+    {
+        background-color: lighten(rgba(255, 192, 203, 1.0), 8);
+    }
+}
+
+/* Missing controls in `audio` */
+audio:not([controls])
+{
+    display: block;
+    @include vg_const_debug($color_warning);
+}
+
+/**
+ * ::: typography adjustment
+**/
+
+body
+{
+    @if $is_debug_manual_on
+    {
+        background-image: linear-gradient(#fff 2.3rem, #fff .1rem, #eee .1rem);
+        background-size: 100% 2.4rem;
+    }
+}
+
+h1,h2,h3,h4,h5,h6
+{
+    @if $is_debug_manual_on == true {
+        background-color: rgba(255, 255, 0, 0.3);
+    }
+}
+
+/*******************************************\
+^^  Cheklist
+\*******************************************/
+
+/**
+ * ::: Empty element errors
+**/
+h1:empty,
+h2:empty,
+h3:empty,
+h4:empty,
+h5:empty,
+h6:empty,
+p:empty,
+a:empty,
+strong:empty,
+em:empty,
+ul:empty,
+ol:empty,
+li:empty,
+dl:empty,
+dt:empty,
+dd:empty,
+b:empty,
+abbr:empty,
+acronym:empty,
+span:empty,
+table:empty,
+td:empty,
+th:empty,
+thead:empty,
+tbody:empty,
+form:empty,
+fieldset:empty,
+section:empty,
+form:empty
+{
+    @include vg_const_debug($color_error);
+    @include vg_elem_enlarge();
+}
+
+/**
+ * ::: Empty elements warnings
+**/
+span:empty,
+div:empty
+{
+    @include vg_const_debug($color_warning);
+    @include vg_elem_enlarge();
+}
+
+/**
+ * ::: From CSSCommon and many others - https://github.com/Darklg/CSSCommon)
+**/
+/* Check alignement - via @Sutterlity */
+body * {
+    // background-color: rgba(0,0,0,.02);
+}
+
+
+/**
+ * ::: Missing or bad properties
+**/
+
+/* Missing or invalid href */
+a[href=""],
+a[href^="javascript"],
+a:not([href]) {
+    @include vg_const_debug($color_error);
+}
+
+/*highlight absolute urls*/
+a[href ^= http] {
+  display: inline-block;
+  color: red;
+  transform: rotate(180deg);
+}
+
+/* Missing attributes */
+// Forms
+label:not([for]),
+input:not([type]),
+form:not([action]),
+form:not([method]),
+form[method=""],
+textarea:not([cols]),
+textarea:not([rows]),
+form button:not([type]),
+img:not([alt]),
+img:not([src])
+{
+    @include vg_const_debug($color_error);
+}
+
+/* Empty attributes */
+[id=""],
+[class=""],
+[name=""],
+[for=""],
+[alt=""],
+img[src=""]
+{
+    @include vg_const_debug($color_error);
+}
+
+img:not([src]),
+img[src=""]
+{
+    @include vg_elem_enlarge();
+}
+
+
+/**
+ * ::: Invalid HTML
+**/
+/* Invalid child */
+a > a,
+button > input,
+button > select,
+button > textarea,
+button > label,
+button > button,
+button > form,
+button > fieldset,
+button > iframe,
+label > label,
+form > form,
+dl > *,
+form > form,
+form > input,
+form > textarea,
+form > button,
+tbody > *,
+ol > *,
+ul > * {
+    @include vg_const_debug($color_error);
+}
+
+tbody > tr,
+ol > li,
+ul > li,
+dl > dd,
+dl > dt {
+    outline: 0!important;
+}
+
+/* Invalid order */
+tbody + tfoot td {
+    background-color: red!important;
+}
+
+/**
+ * ::: Deprecated elements
+**/
+applet, acronym, center, dir, font, strike, big, tt, marquee, hgroup, plaintext, xmp {
+    @include vg_const_debug($color_warning);
+}
+
+/**
+ * ::: Deprecated attributes
+**/
+[background], [bgcolor], [onblur], [onchange], [onclick], [onclick],
+[ondblclick], [onfocus], [onkeydown], [onkeypress], [onkeyup],
+[onload], [onmousedown], [onmousemove], [onmouseout], [onmouseover],
+[onmouseover], [onmouseup], [onreset], [onselect], [onsubmit], [onunload] {
+    @include vg_const_debug($color_warning);
+}
+
+.voila
+{
+    color: #BADA55;
+}
