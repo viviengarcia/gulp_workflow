@@ -5,8 +5,7 @@ var rimraf = require('gulp-rimraf');
 var jade = require('gulp-jade'); // templates processing
 var html_prettify = require('gulp-html-prettify');
 var replace = require('gulp-replace');
-var frep = require('gulp-frep'); // replace external js file name in html head
-var htmlhint = require("gulp-htmlhint");
+var htmlhint = require('gulp-htmlhint');
 var jshint = require('gulp-jshint'); // code validation
 var sass = require('gulp-sass'); // css processing and formating
 var prefix = require('gulp-autoprefixer');
@@ -16,7 +15,7 @@ var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat'); // js formating
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var notify = require("gulp-notify"); // notification using osx native notification center
+var notify = require('gulp-notify'); // notification using osx native notification center
 
 /////////////////////////////////////////////////////////////////////////
 // T A S K S
