@@ -127,11 +127,6 @@
         width: 25%;
 
     }
-    #{$device}two-quarters
-    {
-        @extend #{$device}one-half;
-
-    }
     #{$device}three-quarters
     {
         width: 75%;
@@ -474,7 +469,7 @@ html
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-*[dir=rtl] .visually-hidden
+[dir=rtl] .visually-hidden
 {
     left: auto;
     right: -7000px;

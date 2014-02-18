@@ -1,9 +1,9 @@
-/*!
+/*
 Name: CSS Starter
 URL: http://github.com/viviengarcia/CSS-Starter
 Description: Manual highlight of some elements
 Version: 0.1
-License: GPLv3
+License: GPLv2
 */
 /* !! choose your weapon */
 /* !! if language is fr(ench), quotes are in french format, else in english */
@@ -63,7 +63,7 @@ License: GPLv3
     width: 100%;
 }
 
-%two-quarters, %three-sixths, %four-eighths, %five-tenths, %six-twelfths, .grid--app .one-half
+%three-sixths, %four-eighths, %five-tenths, %six-twelfths, .grid--app .one-half
 {
     width: 50%;
 }
@@ -82,7 +82,6 @@ License: GPLv3
 {
     width: 25%;
 }
-
 
 %six-eighths, %nine-twelfths
 {
@@ -140,7 +139,7 @@ License: GPLv3
 /* !! start responsive grid */
 @media only screen and (max-width: 320px)
 {
-  %    s--two-quarters, %s--three-sixths, %s--four-eighths, %s--five-tenths, %s--six-twelfths
+  %    s--three-sixths, %s--four-eighths, %s--five-tenths, %s--six-twelfths
     {
         width: 50%;
     }
@@ -176,7 +175,7 @@ License: GPLv3
 
 @media only screen and (min-width: 321px) and (max-width: 768px)
 {
-  %    m--two-quarters, %m--three-sixths, %m--four-eighths, %m--five-tenths, %m--six-twelfths
+  %    m--three-sixths, %m--four-eighths, %m--five-tenths, %m--six-twelfths
     {
         width: 50%;
     }
@@ -212,7 +211,7 @@ License: GPLv3
 
 @media only screen and (min-width: 769px) and (max-width: 1152px)
 {
-  %    l--two-quarters, %l--three-sixths, %l--four-eighths, %l--five-tenths, %l--six-twelfths
+  %    l--three-sixths, %l--four-eighths, %l--five-tenths, %l--six-twelfths
     {
         width: 50%;
     }
@@ -248,7 +247,7 @@ License: GPLv3
 
 @media only screen and (min-width: 1153px)
 {
-  %    xl--two-quarters, %xl--three-sixths, %xl--four-eighths, %xl--five-tenths, %xl--six-twelfths
+  %    xl--three-sixths, %xl--four-eighths, %xl--five-tenths, %xl--six-twelfths
     {
         width: 50%;
     }
@@ -411,7 +410,7 @@ html
     clip: rect(1px, 1px, 1px, 1px);
 }
 
-*[dir=rtl] .visually-hidden
+[dir=rtl] .visually-hidden
 {
     left: auto;
     right: -7000px;
@@ -1238,6 +1237,3 @@ applet, acronym, center, dir, font, strike, big, tt, marquee, hgroup, plaintext,
 **/
 [background], [bgcolor], [onblur], [onchange], [onclick], [onclick], [ondblclick], [onfocus], [onkeydown], [onkeypress], [onkeyup], [onload], [onmousedown], [onmousemove], [onmouseout], [onmouseover], [onmouseover], [onmouseup], [onreset], [onselect], [onsubmit], [onunload] {
   outline: 3px dashed yellow !important; }
-
-.voila {
-  color: #BADA55; }
