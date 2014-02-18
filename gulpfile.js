@@ -39,7 +39,7 @@ gulp.task('cleaning', function() {
 
     gulp.src('./_build/stage/*.html')
         .pipe(rimraf())
-        .pipe(jshint.reporter('default'))
+        // .pipe(rimraf.reporter('default'))
         .pipe(notify({ message: 'Cleaned!' }));
 });
 
@@ -47,38 +47,24 @@ gulp.task('cleaning', function() {
 gulp.task('templates', function() {
     var YOUR_LOCALS = {
         pretty: true
+        // pretty: true,
+        // path: './_source/*.jade'
     };
 
-    gulp.src('./_source/**/*.jade')
+    gulp.src('./_source/*.jade')
         .pipe(jade({
-          locals: YOUR_LOCALS
+            locals: YOUR_LOCALS
         }))
         .pipe(gulp.dest('./_build/stage')) // save minified to stage
-        .pipe(replace(/javascript\.js/, 'javascript.min.js'))
+        .pipe(replace(/javascript\.js/, 'javascript.min.js')) // find and replace external js file name reference
         .pipe(gulp.dest('./_build/stage'))
         .pipe(html_prettify({
             indent_char: ' ',  indent_size: 4
         }))
         .pipe(gulp.dest('./_build/dev')) // save expanded to dev
         .pipe(notify({ message: 'Templates processed!' }));
+
 });
-
-// Find and replace file refs
-// gulp.task('replace', function(){
-// });
-
-// Find and replace file refs
-// gulp.task('frep', function() {
-//     var patterns = {
-//             pattern: /javascript\.js/,
-//             replacement: 'javascript.min.js'
-//     };
-
-//     gulp.src('./_build/stage/test.html')
-//         .pipe(frep(patterns))
-//         .pipe(rename('a.html'))
-//         .pipe(gulp.dest('./_build/stage'));
-// });
 
 // Code lint
 gulp.task('code_hint', function() {
