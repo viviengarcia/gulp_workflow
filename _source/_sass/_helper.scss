@@ -16,60 +16,47 @@
  * ::: @media mixin
 **/
 @mixin mq($canvas) {
-    @if $canvas == sl // value & less
-    {
+    @if $canvas == sl { // value & less
+
         @media only screen and ( max-width: $s ) { @content; }
     }
-    @else if $canvas == ml
-    {
+    @else if $canvas == ml {
         @media only screen and ( max-width: $m ) { @content; }
     }
-    @else if $canvas == ll
-    {
+    @else if $canvas == ll {
         @media only screen and ( max-width: $l ) { @content; }
     }
-    @else if $canvas == xll
-    {
+    @else if $canvas == xll {
         @media only screen and ( max-width: $xl ) { @content; }
     }
-    @else if $canvas == sp // value & plus
-    {
+    @else if $canvas == sp { // value & plus
         @media only screen and ( min-width: $s + 1 ) { @content; }
     }
-    @else if $canvas == mp
-    {
+    @else if $canvas == mp {
         @media only screen and ( min-width: $m + 1 ) { @content; }
     }
-    @else if $canvas == lp
-    {
+    @else if $canvas == lp {
         @media only screen and ( min-width: $l + 1 ) { @content; }
     }
-    @else if $canvas == xlp
-    {
+    @else if $canvas == xlp {
         @media only screen and ( min-width: $xl + 1 ) { @content; }
     }
-    @else if $canvas == stol
-    {
+    @else if $canvas == stol {
         @media only screen and ( min-width: $s + 1 ) and ( max-width: $l) { @content; }
     }
-    @else if $canvas == mtoxl
-    {
+    @else if $canvas == mtoxl {
         @media only screen and ( min-width: $l + 1 ) and ( max-width: $xl) { @content; }
     }
-    @else if $canvas == stoxl
-    {
+    @else if $canvas == stoxl {
         @media only screen and ( min-width: $s + 1 ) and ( max-width: $xl) { @content; }
     }
-    @else if $canvas == s
-    {
+    @else if $canvas == s {
         @media only screen and (  min-width: $s + 1 ) and ( max-width: $m) { @content; }
     }
-    @else if $canvas == m
-    {
+    @else if $canvas == m {
         @media only screen and (  min-width: $m + 1 ) and ( max-width: $l) { @content; }
     }
-    @else if $canvas == l
-    {
+    @else if $canvas == l {
         @media only screen and (  min-width: $l + 1 ) and ( max-width: $xl) { @content; }
     }
 }
@@ -123,6 +110,11 @@
     }
 
     #{$device}one-quarter
+    {
+        @extend #{$device}one-half;
+
+    }
+    #{$device}two-quarters
     {
         width: 25%;
 

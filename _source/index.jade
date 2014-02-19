@@ -2,9 +2,8 @@ doctype html
 html(lang="fr")
     include _includes/head
     body
-        div(class="wrapper")
-            header(class="header--app")
-            h1 Verticale Scale
+        .wrapper
+            include _includes/header--app
             div(class="content_main--page")
                 article
                     h3(class="heading--app") Headers
@@ -21,6 +20,6 @@ html(lang="fr")
 
             footer(class="footer--app")
                 address
-                    p Follow me on
+                    p Follow me on 
                         a(href="www.twitter.com/vivien_garcia") twitter
                     p Visit me: P. Sherman, 42, Wallaby way, Sidney.

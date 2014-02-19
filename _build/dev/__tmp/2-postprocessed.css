@@ -192,6 +192,7 @@ html {
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
+  -ms-hyphens: auto;
   hyphens: auto;
 }
 
@@ -388,6 +389,7 @@ dfn {
 /* line 170, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_normalize.scss */
 hr {
   -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -602,6 +604,8 @@ html input[disabled] {
 /* line 404, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -1162,6 +1166,7 @@ cite:before {
 /* line 232, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .exo--app li {
   display: inline-block;
+  width: -webkit-calc(200px + (100% - 860px)/3);
   width: calc(200px + (100% - 860px)/3);
   margin: 1.6rem 10px;
   font-size: 1.6rem;
@@ -1178,13 +1183,17 @@ cite:before {
 }
 /* line 248, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .exo--app li:nth-child(4n+1) {
+  width: -webkit-calc(200px + (100% - 860px)/6);
   width: calc(200px + (100% - 860px)/6);
+  padding-right: -webkit-calc((100% - 860px)/6);
   padding-right: calc((100% - 860px)/6);
   margin-left: -10px;
 }
 /* line 254, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .exo--app li:nth-child(4n+4) {
+  width: -webkit-calc(200px + (100% - 860px)/6);
   width: calc(200px + (100% - 860px)/6);
+  padding-left: -webkit-calc((100% - 860px)/6);
   padding-left: calc((100% - 860px)/6);
   margin-right: -10px;
 }
@@ -1199,12 +1208,14 @@ cite:before {
 /* line 9, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_ugly.scss */
 .wrapper--app {
   background-color: rgba(255, 0, 0, 0.125);
+  width: -webkit-calc(100% - 4.8rem);
   width: calc(100% - 4.8rem);
   padding-top: 2.4rem;
 }
 
 /* line 16, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_ugly.scss */
 .grid--app {
+  width: -webkit-calc(100% - 4.8rem);
   width: calc(100% - 4.8rem);
 }
 
@@ -1272,6 +1283,7 @@ form:empty {
   width: 6rem;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 
@@ -1286,6 +1298,7 @@ div:empty {
   width: 6rem;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 
@@ -1309,6 +1322,8 @@ a:not([href]) {
 a[href^=http] {
   display: inline-block;
   color: red;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -1345,6 +1360,7 @@ img[src=""] {
   width: 6rem;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 

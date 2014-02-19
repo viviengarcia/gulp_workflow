@@ -7,8 +7,9 @@ var html_prettify = require('gulp-html-prettify');
 var replace = require('gulp-replace');
 var htmlhint = require('gulp-htmlhint');
 var jshint = require('gulp-jshint'); // code validation
-var sass = require('gulp-sass'); // css processing and formating
+var sass = require('gulp-ruby-sass'); // css processing and formating
 var prefix = require('gulp-autoprefixer');
+var pixrem = require('pixrem');
 var bless = require('gulp-bless');
 var cssbeautify = require('gulp-cssbeautify');
 var minifyCSS = require('gulp-minify-css');
@@ -46,20 +47,18 @@ gulp.task('cleaning', function() {
 gulp.task('templates', function() {
     var YOUR_LOCALS = {
         pretty: true
-        // pretty: true,
-        // path: './_source/*.jade'
     };
 
     gulp.src('./_source/*.jade')
         .pipe(jade({
             locals: YOUR_LOCALS
         }))
-        .pipe(gulp.dest('./_build/stage')) // save minified to stage
-        .pipe(replace(/javascript\.js/, 'javascript.min.js')) // find and replace external js file name reference
         .pipe(gulp.dest('./_build/stage'))
         .pipe(html_prettify({
             indent_char: ' ',  indent_size: 4
         }))
+        .pipe(replace(/stylesheet\.min\.css/, 'stylesheet.css')) // find and replace external css file name reference to match minified version
+        .pipe(replace(/javascript\.min\.js/, 'javascript.js')) // find and replace external js file name reference to match minified version
         .pipe(gulp.dest('./_build/dev')) // save expanded to dev
         .pipe(notify({ message: 'Templates processed!' }));
 
@@ -79,21 +78,24 @@ gulp.task('code_hint', function() {
 
 // css processing
 gulp.task('processing', function() {
-    gulp.src('./_source/_sass/*.scss')
+    gulp.src('./_source/_sass/stylesheet.scss')
         .pipe(sass({ // preprocessing sass files
-        // noCache: true, style: 'expanded', precision: 7, debugInfo: true, lineNumbers: true
+            trace: true,
+            // check: true, // Currently return an error about auto-prefixer(!)
+            style: 'expanded',
+            precision: 7,
+            // debugInfo: true // Currently misrender nested @media queries (only in gulp plugin)
+            lineNumbers: true
         }))
         .pipe(rename('1-preprocessed.css'))
         .pipe(gulp.dest('./_build/dev/__tmp')) // save a copy for step-by-step debugging
         .pipe(prefix())
-        .pipe(rename('2-prefixed.css'))
+        .pipe(rename('2-postprocessed.css'))
         .pipe(gulp.dest('./_build/dev/__tmp')) // new copy for step-by-step debugging
         .pipe(rename('stylesheet.css'))
         .pipe(bless('stylesheet.css')) // good timing to bless files and prefix
         .pipe(cssbeautify({
-            indent: '    ',
-            openbrace: 'separate-line',
-            autosemicolon: false
+            indent: '    ', openbrace: 'separate-line', autosemicolon: false
         }))
         .pipe(gulp.dest('./_build/dev/_assets/_css')) // saving file to dev
         .pipe(minifyCSS({
