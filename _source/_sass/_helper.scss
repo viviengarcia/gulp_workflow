@@ -87,205 +87,162 @@
     padding-left: 0;
 }
 
-@mixin mq_grid($device)
-{
-    #{$device}one-whole
-    {
+@mixin mq_grid($device) {
+    #{$device}one-whole {
         width: 100%;
     }
 
-    #{$device}one-half
-    {
+    #{$device}one-half {
         width: 50%;
+        &:nth-child(2n+1)
+        {
+            padding-left: 0;
+        }
     }
 
-    #{$device}one-third
-    {
+    #{$device}one-third {
         width: 33.3333333%;
 
     }
-    #{$device}two-thirds
-    {
+    #{$device}two-thirds {
         width: 66.6666666%;
     }
 
-    #{$device}one-quarter
-    {
+    #{$device}one-quarter {
         @extend #{$device}one-half;
 
     }
-    #{$device}two-quarters
-    {
+    #{$device}two-quarters {
         width: 25%;
 
     }
-    #{$device}three-quarters
-    {
+    #{$device}three-quarters {
         width: 75%;
     }
 
-    #{$device}one-fifth
-    {
+    #{$device}one-fifth {
         width: 20%;
 
     }
-    #{$device}two-fifths
-    {
+    #{$device}two-fifths {
         width: 40%;
     }
-    #{$device}three-fifths
-    {
+    #{$device}three-fifths {
         width: 60%;
     }
-    #{$device}four-fifths
-    {
+    #{$device}four-fifths {
         width: 80%;
     }
 
-    #{$device}one-sixth
-    {
+    #{$device}one-sixth {
         width: 16.6666666%;
 
     }
-    #{$device}two-sixths
-    {
+    #{$device}two-sixths {
         @extend #{$device}one-third;
     }
-    #{$device}three-sixths
-    {
+    #{$device}three-sixths {
         @extend #{$device}one-half;
     }
-    #{$device}four-sixths
-    {
+    #{$device}four-sixths {
         @extend #{$device}two-thirds;
     }
-    #{$device}five-sixths
-    {
+    #{$device}five-sixths {
         @extend #{$device}two-thirds;
     }
 
-    #{$device}one-eighth
-    {
+    #{$device}one-eighth {
         width: 12.5%;
     }
-    #{$device}two-eighths
-    {
+    #{$device}two-eighths {
         @extend #{$device}one-quarter;
     }
-    #{$device}three-eighths
-    {
+    #{$device}three-eighths {
         width: 37.5%;
     }
-    #{$device}four-eighths
-    {
+    #{$device}four-eighths {
         @extend #{$device}one-half;
     }
-    #{$device}five-eighth
-    {
+    #{$device}five-eighth {
         width: 62.5%;
     }
-    #{$device}six-eighths
-    {
+    #{$device}six-eighths {
         @extend #{$device}three-quarters;
     }
-    #{$device}seven-eighths
-    {
+    #{$device}seven-eighths {
         width: 87.5%;
     }
 
-    #{$device}one-tenth
-    {
+    #{$device}one-tenth {
         width: 10%;
     }
-    #{$device}two-tenths
-    {
+    #{$device}two-tenths {
         @extend #{$device}one-fifth;
     }
-    #{$device}three-tenths
-    {
+    #{$device}three-tenths {
         width: 30%;
     }
-    #{$device}four-tenths
-    {
+    #{$device}four-tenths {
         width: 40%;
     }
-    #{$device}five-tenths
-    {
+    #{$device}five-tenths {
         @extend #{$device}one-half;
     }
-    #{$device}six-tenths
-    {
+    #{$device}six-tenths {
         width: 60%;
     }
-    #{$device}seven-tenths
-    {
+    #{$device}seven-tenths {
         width: 70%;
     }
-    #{$device}eight-tenths
-    {
+    #{$device}eight-tenths {
         @extend #{$device}four-fifths;
     }
-    #{$device}nine-tenths
-    {
+    #{$device}nine-tenths {
         width: 90%;
     }
 
-    #{$device}one-twelfth
-    {
+    #{$device}one-twelfth {
         width: 8.3333333%;
     }
-    #{$device}two-twelfths
-    {
+    #{$device}two-twelfths {
         @extend #{$device}one-sixth;
     }
-    #{$device}three-twelfths
-    {
+    #{$device}three-twelfths {
         @extend #{$device}one-quarter;
     }
-    #{$device}four-twelfths
-    {
+    #{$device}four-twelfths {
         @extend #{$device}one-third;
     }
-    #{$device}five-twelfths
-    {
+    #{$device}five-twelfths {
         width: 41.6666666%;
     }
-    #{$device}six-twelfths
-    {
+    #{$device}six-twelfths {
         @extend #{$device}one-half;
     }
-    #{$device}seven-twelfths
-    {
+    #{$device}seven-twelfths {
         width: 58.3333333%;
     }
-    #{$device}eight-twelfths
-    {
+    #{$device}eight-twelfths {
         @extend #{$device}two-thirds;
     }
-    #{$device}nine-twelfths
-    {
+    #{$device}nine-twelfths {
         @extend #{$device}three-quarters;
     }
-    #{$device}ten-twelfths
-    {
+    #{$device}ten-twelfths {
         @extend #{$device}five-sixths;
     }
-    #{$device}eleven-twelfths
-    {
+    #{$device}eleven-twelfths {
         width: 91.6666666%;
     }
 }
 
-@mixin mq_create($media-query)
-{
-    @each $rule in $conditions
-    {
+@mixin mq_create($media-query) {
+    @each $rule in $conditions {
         $name: nth($rule, 1);
         $condition: nth($rule, 2);
 
-        @if $media-query == $name and $condition
-        {
-            @media only screen and #{$condition}{
+        @if $media-query == $name and $condition {
+            @media only screen and #{$condition} {
                 @content;
             }
         }
@@ -297,10 +254,8 @@
 @include mq_grid('%');
 
 /* !! start responsive grid */
-@each $point in $breakpoints
-{
-    @include mq_create($point)
-    {
+@each $point in $breakpoints {
+    @include mq_create($point) {
         @include mq_grid('%#{$point}--');
     }
 }
@@ -308,13 +263,11 @@
 /**
  * ::: Debug mixins
 **/
-@mixin vg_const_debug($color_debug)
-{
+@mixin vg_const_debug($color_debug) {
     outline: 3px dashed $color_debug!important;
 }
 
-@mixin vg_elem_enlarge()
-{
+@mixin vg_elem_enlarge() {
     display: inline-block;
     width: 6rem;
     height: 4.8rem;

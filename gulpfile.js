@@ -9,89 +9,100 @@ var htmlhint = require('gulp-htmlhint');
 var jshint = require('gulp-jshint'); // code validation
 var sass = require('gulp-ruby-sass'); // css processing and formating
 var prefix = require('gulp-autoprefixer');
-var pixrem = require('pixrem');
 var bless = require('gulp-bless');
 var cssbeautify = require('gulp-cssbeautify');
 var minifyCSS = require('gulp-minify-css');
 var concat = require('gulp-concat'); // js formating
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
-var notify = require('gulp-notify'); // notification using osx native notification center
 
 /////////////////////////////////////////////////////////////////////////
 // T A S K S
-// Cleaning
-gulp.task('cleaning', function() {
-    gulp.src('./_build/dev/_assets/_js', {read: false})
-        .pipe(rimraf());
+// gulp.task('all-cleaning', function() {
+//     var cleaning = gulp.src(['./_build/dev/_assets/_css', './_build/dev/_assets/__tmp', './_build/dev/*.html', './_build/stage/_assets/_js', './_build/stage/_assets/_css', './_build/stage/*.html'], {read: false})
+//         .pipe(rimraf());
+//     return cleaning;
+// });
 
-    gulp.src('./_build/dev/_assets/_css', {read: false})
+// Templates cleaning
+gulp.task('tpl-cleaning', function() {
+    var tmpl_cleaning = gulp.src(['./_build/dev/*.html', './_build/stage/*.html'], {read: false})
         .pipe(rimraf());
-
-    gulp.src('./_build/dev/*.html')
+    return tmpl_cleaning;
+});
+// JS cleaning
+gulp.task('js-cleaning', function() {
+    var js_cleaning = gulp.src(['./_build/dev/_assets/_js', './_build/stage/_assets/_js'], {read: false})
         .pipe(rimraf());
-
-    gulp.src('./_build/stage/_assets/_js', {read: false})
+    return js_cleaning;
+});
+// CSS cleaning
+gulp.task('css-cleaning', function() {
+    var css_cleaning = gulp.src(['./_build/dev/_assets/_css', './_build/stage/_assets/_css'], {read: false})
         .pipe(rimraf());
-
-    gulp.src('./_build/stage/_assets/_css', {read: false})
-        .pipe(rimraf());
-
-    gulp.src('./_build/stage/*.html')
-        .pipe(rimraf())
-        // .pipe(rimraf.reporter('default'))
-        .pipe(notify({ message: 'Cleaned!' }));
+    return css_cleaning;
 });
 
 // Template processing
-gulp.task('templates', function() {
-    var YOUR_LOCALS = {
-        pretty: true
-    };
+gulp.task('templates', ['tpl-cleaning'], function() {
+    var YOUR_LOCALS = { pretty: true };
 
     gulp.src('./_source/*.jade')
         .pipe(jade({
             locals: YOUR_LOCALS
         }))
         .pipe(gulp.dest('./_build/stage'))
+        .pipe(rimraf())
+        .pipe(gulp.dest('./_build/stage'))
         .pipe(html_prettify({
             indent_char: ' ',  indent_size: 4
         }))
         .pipe(replace(/stylesheet\.min\.css/, 'stylesheet.css')) // find and replace external css file name reference to match minified version
         .pipe(replace(/javascript\.min\.js/, 'javascript.js')) // find and replace external js file name reference to match minified version
-        .pipe(gulp.dest('./_build/dev')) // save expanded to dev
-        .pipe(notify({ message: 'Templates processed!' }));
-
+        .pipe(gulp.dest('./_build/dev')); // save expanded to dev
 });
 
-// Code lint
-gulp.task('code_hint', function() {
+// Code linting
+gulp.task('code_hint', ['js-cleaning'], function() {
     gulp.src('./_source/_js/*.js')
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
-
     gulp.src('./_build/dev/*.html')
         .pipe(htmlhint())
-        .pipe(htmlhint.reporter())
-        .pipe(notify({ message: 'Javascript hinted!' }));
+        .pipe(htmlhint.reporter());
 });
 
-// css processing
-gulp.task('processing', function() {
-    gulp.src('./_source/_sass/stylesheet.scss')
-        .pipe(sass({ // preprocessing sass files
-            trace: true,
-            // check: true, // Currently return an error about auto-prefixer(!)
-            style: 'expanded',
-            precision: 7,
-            // debugInfo: true // Currently misrender nested @media queries (only in gulp plugin)
-            lineNumbers: true
+// CSS processing
+gulp.task('css-sass', ['css-cleaning'], function() {
+    var cleaned = gulp.src('./_source/_sass/stylesheet.scss')
+        .pipe(sass({ // preprocessing sass files, check and debugInfo can't be used because of bugs
+            style: 'expanded', precision: 7, lineNumbers: true// debugInfo currently misrender nested @media queries (only in gulp plugin)
         }))
         .pipe(rename('1-preprocessed.css'))
-        .pipe(gulp.dest('./_build/dev/__tmp')) // save a copy for step-by-step debugging
+        .pipe(gulp.dest('./_build/dev/__tmp')); // save a copy for step-by-step debugging
+});
+gulp.task('css-prefix', ['css-sass'], function() {
+    var prefixed = gulp.src('./_build/dev/__tmp/1-preprocessed.css')
         .pipe(prefix())
-        .pipe(rename('2-postprocessed.css'))
-        .pipe(gulp.dest('./_build/dev/__tmp')) // new copy for step-by-step debugging
+        .pipe(rename('2-prefixed.css'))
+        .pipe(gulp.dest('./_build/dev/__tmp')); // save a copy for step-by-step debugging
+});
+gulp.task('css-pixrem', ['css-prefix'], function() {
+    'use strict';
+    var fs = require('fs');
+    var pixrem = require('pixrem');
+    var css = fs.readFileSync('./_build/dev/__tmp/2-prefixed.css', 'utf8');
+    var processedCss = pixrem(css, '10');
+
+    var pixremed = fs.writeFile('./_build/dev/__tmp/3-pixremed.css', processedCss, function (err) {
+      if (err) {
+        throw err;
+      }
+      console.log('IE8, you\'re welcome.');
+    });
+});
+gulp.task('css-post', ['css-pixrem'], function() {
+    gulp.src('./_build/dev/__tmp/3-pixremed.css')
         .pipe(rename('stylesheet.css'))
         .pipe(bless('stylesheet.css')) // good timing to bless files and prefix
         .pipe(cssbeautify({
@@ -102,8 +113,7 @@ gulp.task('processing', function() {
             keepSpecialComments: 1, removeEmpty: true
         }))
         .pipe(rename('stylesheet.min.css'))
-        .pipe(gulp.dest('./_build/stage/_assets/_css')) // finaly we save for stage
-        .pipe(notify({ message: 'CSS Sassified and post-processed!' }));
+        .pipe(gulp.dest('./_build/stage/_assets/_css')); // finaly we save for stage
 });
 
 // Concatenate & Minify JS
@@ -114,22 +124,16 @@ gulp.task('scripts', function() {
         .pipe(gulp.dest('./_build/dev/__tmp'))
         .pipe(uglify())
         .pipe(rename('javascript.min.js'))
-        .pipe(gulp.dest('./_build/stage/_assets/_js'))
-        .pipe(notify({ message: 'Javascript post-processed!' }));
+        .pipe(gulp.dest('./_build/stage/_assets/_js'));
 });
 
 // Watch files for changes
 gulp.task('watch', function() {
-    gulp.watch('./_source/_js/*.js', ['lint', 'scripts']);
-    gulp.watch('./_source/_sass/*.scss', ['sass']);
-});
-
-// Final notification
-gulp.task('notification', function() {
-    gulp.src('./dev/__tmp')
-        .pipe(notify({ message: 'Gulped!' }));
+    gulp.watch('./_source/_js/*.js', ['code_hint', 'scripts']);
+    gulp.watch('./_source/_sass/*.scss', ['css-sass', 'css-prefix', 'css-pixrem', 'css-post']);
+    gulp.watch('./_source/*.jade', ['templates']);
 });
 
 /////////////////////////////////////////////////////////////////////////
 // D E F A U L T   T A S K
-gulp.task('default', ['cleaning', 'templates', 'code_hint', 'processing', 'scripts', 'notification']);
+gulp.task('default', ['tpl-cleaning', 'js-cleaning', 'css-cleaning', 'templates', 'code_hint', 'css-sass', 'css-prefix', 'css-pixrem', 'css-post', 'scripts', 'watch']);

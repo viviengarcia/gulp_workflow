@@ -38,13 +38,16 @@ License: GPLv2
 /* line 68, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid-container {
   width: 100%;
+  padding: 0 0 24px;
   padding: 0 0 2.4rem;
   font-size: 0;
 }
 
 /* line 75, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid-cell {
+  padding-left: 10px;
   padding-left: 1rem;
+  font-size: 16px;
   font-size: 1.6rem;
 }
 /* line 80, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
@@ -58,14 +61,18 @@ License: GPLv2
 }
 
 /* !! all-purpose grid */
-/* line 93, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 91, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid--app .one-whole {
   width: 100%;
 }
 
-/* line 98, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 95, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid--app .one-quarter, .grid--app .one-half {
   width: 50%;
+}
+/* line 98, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+.grid--app .one-quarter:nth-child(2n+1), .grid--app .one-half:nth-child(2n+1) {
+  padding-left: 0;
 }
 
 /* line 103, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
@@ -73,17 +80,17 @@ License: GPLv2
   width: 33.3333333%;
 }
 
-/* line 118, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 115, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid--app .two-quarters {
   width: 25%;
 }
 
-/* line 128, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 123, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid--app .one-fifth {
   width: 20%;
 }
 
-/* line 146, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 137, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid--app .one-sixth {
   width: 16.6666666%;
 }
@@ -95,7 +102,7 @@ License: GPLv2
     width: 33.3333333%;
   }
 
-  /* line 146, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+  /* line 137, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
   .grid--app .l--one-sixth {
     width: 16.6666666%;
   }
@@ -104,7 +111,7 @@ License: GPLv2
  * ::: Debug mixins
 **/
 /* !! define box-model as "border-box" */
-/* line 327, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 280, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -112,7 +119,7 @@ License: GPLv2
   margin-bottom: 0;
 }
 
-/* line 340, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 293, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .grid-cell, audio,
 canvas,
 progress,
@@ -125,23 +132,23 @@ video {
     ^^ Layout
 \*******************************************/
 /* !! define basic typo scale in medium non-retinas screens */
-/* line 352, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 305, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 html {
   font-size: 62.5%;
 }
 
-/* line 357, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 310, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .table {
   display: table;
 }
 
-/* line 362, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 315, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .cell {
   display: table-cell;
 }
 
 /* clearfix for blocks that must contain floats */
-/* line 370, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 323, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .clearfix:after,
 .line:after,
 .mod:after {
@@ -150,17 +157,17 @@ html {
   clear: both;
 }
 
-/* line 377, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 330, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .left {
   float: left;
 }
 
-/* line 382, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 335, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .right {
   float: right;
 }
 
-/* line 387, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 340, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .center, .wrapper, .grid--app {
   margin-left: auto;
   margin-right: auto;
@@ -169,23 +176,23 @@ html {
 /*******************************************\
     ^^ Typography
 \*******************************************/
-/* line 398, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 351, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .textright, .table--app thead th:first-child, .table--app tbody {
   text-align: right;
 }
 
-/* line 403, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 356, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .textleft, .table--app thead, .table--app tbody td, .table--app tbody tr:first-child td {
   text-align: left;
 }
 
-/* line 408, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 361, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .textcenter, figure, .table--app thead th, .grid--app .grid-cell > * {
   text-align: center;
 }
 
 /* !! Prevent long strings to break out of their container */
-/* line 414, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 367, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .wrap {
   -ms-word-break: break-all;
   word-break: break-all;
@@ -200,7 +207,7 @@ html {
     ^^ Hidding / unhidding content
 \*******************************************/
 /* for image replacement */
-/* line 430, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 383, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .ir {
   display: block;
   text-indent: -999em;
@@ -211,21 +218,21 @@ html {
 }
 
 /* Hide for both screenreaders and browsers - css-discuss.incutio.com/wiki/Screenreader_Visibility */
-/* line 441, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 394, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
 /* Hide visually and from screenreaders, but maintain layout */
-/* line 448, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 401, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .invisible {
   visibility: hidden;
 }
 
 /* Hide only visually, but have it available for screenreaders
    www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden  */
-/* line 456, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 409, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 .assistive-text,
 .visually-hidden {
   position: absolute !important;
@@ -235,13 +242,13 @@ html {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
-/* line 465, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 418, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 [dir=rtl] .visually-hidden {
   left: auto;
   right: -7000px;
 }
 
-/* line 472, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
+/* line 425, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_helper.scss */
 a.assistive-text:active,
 a.assistive-text:focus {
   background: #eee;
@@ -412,6 +419,7 @@ kbd,
 pre,
 samp {
   font-family: monospace, serif;
+  font-size: 16px;
   font-size: 1.6rem;
 }
 
@@ -433,6 +441,7 @@ pre code {
  */
 /* line 228, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_normalize.scss */
 small {
+  font-size: 13px;
   font-size: 1.3rem;
 }
 
@@ -706,6 +715,7 @@ th {
 
 /* line 29, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 body {
+  font-size: 16px;
   font-size: 1.6rem;
   line-height: 1.5;
   color: #111111;
@@ -714,6 +724,7 @@ body {
 
 /* line 37, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 .wrapper {
+  width: 550px;
   width: 55rem;
 }
 
@@ -731,8 +742,10 @@ h6 {
 /* line 55, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h1,
 .h1-like {
+  margin: 48px 0 0;
   margin: 4.8rem 0 0;
   line-height: 1;
+  font-size: 48px;
   font-size: 4.8rem;
 }
 @media only screen and (min-width: 1153px) {
@@ -740,6 +753,7 @@ h1,
   h1,
   .h1-like {
     line-height: 1.309659;
+    font-size: 55px;
     font-size: 5.5rem;
   }
 }
@@ -748,6 +762,7 @@ h1,
   h1,
   .h1-like {
     line-height: 1.5;
+    font-size: 32px;
     font-size: 3.2rem;
   }
 }
@@ -755,8 +770,10 @@ h1,
 /* line 73, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h2,
 .h2-like {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
   line-height: 1.3333333;
+  font-size: 36px;
   font-size: 3.6rem;
 }
 @media only screen and (min-width: 1153px) {
@@ -764,6 +781,7 @@ h2,
   h2,
   .h2-like {
     line-height: 1.2805541;
+    font-size: 37px;
     font-size: 3.75rem;
   }
 }
@@ -772,6 +790,7 @@ h2,
   h2,
   .h2-like {
     line-height: 1.8461538;
+    font-size: 26px;
     font-size: 2.6rem;
   }
 }
@@ -779,8 +798,10 @@ h2,
 /* line 91, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h3,
 .h3-like {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
   line-height: 1;
+  font-size: 24px;
   font-size: 2.4rem;
 }
 @media only screen and (min-width: 1153px) {
@@ -788,6 +809,7 @@ h3,
   h3,
   .h3-like {
     line-height: 1.6006927;
+    font-size: 30px;
     font-size: 3rem;
   }
 }
@@ -796,6 +818,7 @@ h3,
   h3,
   .h3-like {
     line-height: 1.0909090;
+    font-size: 22px;
     font-size: 2.2rem;
   }
 }
@@ -803,8 +826,10 @@ h3,
 /* line 109, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h4,
 .h4-like {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
   line-height: 1.2;
+  font-size: 20px;
   font-size: 2rem;
 }
 @media only screen and (min-width: 1153px) {
@@ -812,6 +837,7 @@ h4,
   h4,
   .h4-like {
     line-height: 1.0963140;
+    font-size: 21px;
     font-size: 2.19rem;
   }
 }
@@ -820,6 +846,7 @@ h4,
   h4,
   .h4-like {
     line-height: 1.2631578;
+    font-size: 19px;
     font-size: 1.9rem;
   }
 }
@@ -827,14 +854,18 @@ h4,
 /* line 127, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h5,
 .h5-like {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
+  font-size: 16px;
   font-size: 1.6rem;
 }
 
 /* line 134, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 h6,
 .h6-like {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
+  font-size: 16px;
   font-size: 1.6rem;
   color: #3a3a3a;
 }
@@ -851,40 +882,47 @@ h6 + p {
 /* line 151, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 p,
 address {
+  margin-top: 24px;
   margin-top: 2.4rem;
 }
 
 /* line 157, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 .lead, .lead code,
 h2 + p {
+  font-size: 18px;
   font-size: 1.8rem;
   line-height: 1.2;
 }
 
 /* line 164, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 small, .small, cite, .table--app tfoot td {
+  font-size: 13px;
   font-size: 1.3rem;
 }
 
 /* line 169, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 .smaller {
+  font-size: 10px;
   font-size: 1rem;
 }
 
 /* line 174, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 .smallest {
+  font-size: 7px;
   font-size: 0.7rem;
 }
 
 /* line 179, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 figure {
   width: 100%;
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
 }
 
 /* line 186, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 figcaption {
   line-height: 3;
+  margin-top: -8px;
   margin-top: -0.8rem;
   color: #6d6d6d;
 }
@@ -896,12 +934,15 @@ blockquote, q {
 
 /* line 205, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 blockquote {
+  margin: 24px 0 0;
   margin: 2.4rem 0 0;
 }
 /* line 219, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 blockquote p:before {
   content: open-quote;
+  margin-left: -8px;
   margin-left: -0.8rem;
+  margin-right: 3px;
   margin-right: 0.3rem;
 }
 /* line 228, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
@@ -911,6 +952,7 @@ blockquote p:after {
 /* line 235, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 blockquote p:last-child:after {
   content: close-quote;
+  margin-left: 0px;
   margin-left: 0.05rem;
 }
 
@@ -930,6 +972,7 @@ cite {
 
 /* line 268, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 ul, ol {
+  margin-top: 24px;
   margin-top: 2.4rem;
 }
 
@@ -944,11 +987,13 @@ li ul, li ol {
 
 /* line 282, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 table {
+  margin-top: 24px;
   margin-top: 2.4rem;
 }
 
 /* line 287, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 th, td {
+  padding: 12px;
   padding: 1.2rem;
 }
 
@@ -963,6 +1008,7 @@ th, td {
 
 /* line 301, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_element.scss */
 pre {
+  padding-left: 40px;
   padding-left: 4rem;
   margin-top: 0;
 }
@@ -984,6 +1030,7 @@ body {
 
 /* line 17, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .heading--app {
+  margin-top: 72px;
   margin-top: 7.2rem;
   color: #990000;
   font-weight: 500;
@@ -991,9 +1038,12 @@ body {
 
 /* line 24, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 hr {
+  margin-top: 12px;
   margin-top: 1.2rem;
+  height: 11px;
   height: 1.1rem;
   border: none;
+  border-top: 1px solid #dadad9;
   border-top: 0.1rem solid #dadad9;
   line-height: 0;
   background-color: transparent;
@@ -1026,9 +1076,12 @@ ol > li {
 /* line 54, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 ol li:before {
   content: counter(number) ".";
+  margin-left: -14px;
   margin-left: -1.4rem;
+  margin-right: 4px;
   margin-right: 0.4rem;
   vertical-align: baseline;
+  font-size: 13px;
   font-size: 1.3rem;
   color: #3a3a3a;
 }
@@ -1036,9 +1089,12 @@ ol li:before {
 /* line 64, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 ul li:before {
   content: "•";
+  margin-left: -13px;
   margin-left: -1.3rem;
+  margin-right: 8px;
   margin-right: 0.8rem;
   vertical-align: baseline;
+  font-size: 16px;
   font-size: 1.6rem;
   color: #3a3a3a;
 }
@@ -1051,6 +1107,7 @@ li ul li:before {
 /* line 80, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 blockquote,
 cite {
+  margin-left: 40px;
   margin-left: 4rem;
 }
 
@@ -1066,6 +1123,7 @@ cite:before {
 /* line 94, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app thead > tr,
 .table--app tbody > tr {
+  border-bottom: 2px solid #bebebe;
   border-bottom: 0.2rem solid #bebebe;
 }
 /* line 98, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
@@ -1075,11 +1133,13 @@ cite:before {
 /* line 103, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app th,
 .table--app td {
+  padding: 11px 10px;
   padding: 1.123rem 1rem;
   font-weight: 500;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: 60px;
   max-width: 6rem;
   border-left: 1px solid #d8d8d8;
 }
@@ -1089,12 +1149,16 @@ cite:before {
 }
 /* line 120, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app thead th {
+  width: 150px;
   width: 15rem;
+  max-width: 150px;
   max-width: 15rem;
 }
 /* line 126, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app thead th:first-child {
+  width: 100px;
   width: 10rem;
+  max-width: 100px;
   max-width: 10rem;
 }
 /* line 140, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
@@ -1107,6 +1171,7 @@ cite:before {
 }
 /* line 148, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app tbody td:nth-child(even) {
+  min-width: 90px;
   min-width: 9rem;
 }
 /* line 151, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
@@ -1125,6 +1190,7 @@ cite:before {
 }
 /* line 168, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_app.scss */
 .table--app tbody tr:first-child td {
+  padding-left: 10px;
   padding-left: 1rem;
   border-left: 1px solid #d8d8d8;
   color: #6d6d6d;
@@ -1168,7 +1234,9 @@ cite:before {
   display: inline-block;
   width: -webkit-calc(200px + (100% - 860px)/3);
   width: calc(200px + (100% - 860px)/3);
+  margin: 16px 10px;
   margin: 1.6rem 10px;
+  font-size: 16px;
   font-size: 1.6rem;
   background-color: #ddd;
   list-style-type: none;
@@ -1208,20 +1276,26 @@ cite:before {
 /* line 9, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_ugly.scss */
 .wrapper--app {
   background-color: rgba(255, 0, 0, 0.125);
+  width: -webkit-calc(100% - 48px);
   width: -webkit-calc(100% - 4.8rem);
+  width: calc(100% - 48px);
   width: calc(100% - 4.8rem);
+  padding-top: 24px;
   padding-top: 2.4rem;
 }
 
 /* line 16, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_ugly.scss */
 .grid--app {
+  width: -webkit-calc(100% - 48px);
   width: -webkit-calc(100% - 4.8rem);
+  width: calc(100% - 48px);
   width: calc(100% - 4.8rem);
 }
 
 @media screen and (min-width: 1153px) {
   /* line 23, ../../../../../../Volumes/Data/vivien/Outils/Modeles/Developpement/gulp_workflow/_source/_sass/_ugly.scss */
   .placeholder_img {
+    height: 360px;
     height: 36rem;
   }
 }
@@ -1280,10 +1354,14 @@ section:empty,
 form:empty {
   outline: 3px dashed red !important;
   display: inline-block;
+  width: 60px;
   width: 6rem;
+  height: 48px;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
+  background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 
@@ -1295,10 +1373,14 @@ span:empty,
 div:empty {
   outline: 3px dashed yellow !important;
   display: inline-block;
+  width: 60px;
   width: 6rem;
+  height: 48px;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
+  background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 
@@ -1357,10 +1439,14 @@ img[src=""] {
 img:not([src]),
 img[src=""] {
   display: inline-block;
+  width: 60px;
   width: 6rem;
+  height: 48px;
   height: 4.8rem;
   margin: 0;
+  background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: -webkit-repeating-linear-gradient(135deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
+  background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 5px, red 6px, #fffaf5 7px, #fffaf5 12px, yellow 14px, yellow 18px);
   background-image: repeating-linear-gradient(-45deg, #fffaf5 0, #fffaf5 0.5rem, red 0.6rem, #fffaf5 0.7rem, #fffaf5 1.2rem, yellow 1.4rem, yellow 1.8rem);
 }
 
