@@ -18,12 +18,6 @@ var rename = require('gulp-rename');
 
 /////////////////////////////////////////////////////////////////////////
 // T A S K S
-// gulp.task('all-cleaning', function() {
-//     var cleaning = gulp.src(['./_build/dev/_assets/_css', './_build/dev/_assets/__tmp', './_build/dev/*.html', './_build/stage/_assets/_js', './_build/stage/_assets/_css', './_build/stage/*.html'], {read: false})
-//         .pipe(rimraf());
-//     return cleaning;
-// });
-
 // Templates cleaning
 gulp.task('tpl-cleaning', function() {
     var tmpl_cleaning = gulp.src(['./_build/dev/*.html', './_build/stage/*.html'], {read: false})
