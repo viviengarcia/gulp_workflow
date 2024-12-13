@@ -1,6 +1,6 @@
-#Gulp Workflow
+# Gulp Workflow
 
-##My static website workflow
+## My static website workflow
 
 Using Gulp, I've tried to limit manual operations as much as possible in the building process of a static website.
 
